@@ -20,16 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Z500-PC
  *
  */
-// this is a comment.
-//hi
-//hi2222
-// Macha Chicha >> What The HEll !!
-
-//kyuyfyukf uyidti df7
-
-//tinku
-
-// Hey guys this is a edited and set by abhimanyu
+// do some work don't just comment!!
 
 @Controller
 public class BadaController extends HttpServlet{
