@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Z500-PC
  *
  */
+// this is a comment.
 @Controller
 public class BadaController extends HttpServlet{
 	  //private static final long serialVersionUID = 1L;
