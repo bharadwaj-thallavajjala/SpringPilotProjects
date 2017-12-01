@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<BR><BR>
-Results for:<b> ${testID}</b>
+<b> ${testID}</b>
 <BR>
 </body>
 </html>
