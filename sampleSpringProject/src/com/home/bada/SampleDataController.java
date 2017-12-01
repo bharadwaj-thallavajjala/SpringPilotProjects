@@ -55,6 +55,7 @@ public class SampleDataController extends HttpServlet {
 	  {
 		logger.debug("=====>START getData");
 		String inpStr = request.getParameter("inputStr");
+		logger.debug("=====>inputStr:"+inpStr);
 		String outputStr = sampleJdbcTempl.getInfoFromDB(inpStr);
 		logger.debug("=====>outputStr:"+outputStr);
 		
