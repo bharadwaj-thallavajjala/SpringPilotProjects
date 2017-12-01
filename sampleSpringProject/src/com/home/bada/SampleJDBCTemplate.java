@@ -25,7 +25,7 @@ public class SampleJDBCTemplate {
     *
     */
    private final ResourceBundle rs = ResourceBundle.getBundle("SampleSqlStmts");
-    
+    /*resource bundle will read .propertiesfile*/
     /**
      * Object for DataSource.
      */
