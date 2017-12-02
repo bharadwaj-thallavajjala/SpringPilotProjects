@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 // do some work don't just comment!!
-// hello 
+// hello developers
 
 @Controller
 public class BadaController extends HttpServlet{
