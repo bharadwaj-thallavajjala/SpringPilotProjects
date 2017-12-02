@@ -51,10 +51,22 @@ public class SampleDataController extends HttpServlet {
 	   *           IOException
 	   */
 	  @RequestMapping(value = "/getDataFromDB", method = { RequestMethod.POST, RequestMethod.GET })
-	  public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
+	 /* public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
 	  {
 		logger.debug("=====>START getData");
 		String inpStr = request.getParameter("inputStr");
+		logger.debug("=====>inputStr:"+inpStr);
+		String outputStr = sampleJdbcTempl.getInfoFromDB(inpStr);
+		logger.debug("=====>outputStr:"+outputStr);
+		
+		modelMap.addAttribute("testID", outputStr);
+	    return "sample.jsp";
+	  }
+	  */
+	  public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
+	  {
+		logger.debug("=====>START getData");
+		int inpStr = Integer.parseInt(request.getParameter("inputStr"));
 		logger.debug("=====>inputStr:"+inpStr);
 		String outputStr = sampleJdbcTempl.getInfoFromDB(inpStr);
 		logger.debug("=====>outputStr:"+outputStr);

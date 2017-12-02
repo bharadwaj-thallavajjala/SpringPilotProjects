@@ -24,7 +24,8 @@ public class SampleJDBCTemplate {
     /**
     *
     */
-   private final ResourceBundle rs = ResourceBundle.getBundle("SampleSqlStmts");
+  // private final ResourceBundle rs = ResourceBundle.getBundle("SampleSqlStmts");
+   private final ResourceBundle tv = ResourceBundle.getBundle("samplesql");
     /*resource bundle will read .propertiesfile*/
     /**
      * Object for DataSource.
@@ -61,16 +62,28 @@ public class SampleJDBCTemplate {
      * 
      * @param inpStr
      *            passed to get the user id
+	 * @return 
      * @return String userid id prepared
      */
-    public final String getInfoFromDB(final String inpStr) {
-        String outputStr = "";
-        final String sql = rs.getString("SampleSqls.Select1");
-        logger.debug("====>sql:"+sql);
-        logger.debug("====>inpStr:"+inpStr);
-        outputStr = jdbcTemplateObject.queryForObject(sql, new Object[] { inpStr }, String.class);
-        return outputStr;
+   /* public final String getInfoFromDB(final String inpStr) {
+    String outputStr = "";
+    final String sql = rs.getString("SampleSqls.Select1");
+    logger.debug("====>sql:"+sql);
+    logger.debug("====>inpStr:"+inpStr);
+    outputStr = jdbcTemplateObject.queryForObject(sql, new Object[] { inpStr }, String.class);
+    return outputStr;
     }
+    */
+    
+    public final String getInfoFromDB(final int a ) {
+        String outputStr1 = "";
+        final String sql1 = tv.getString("SampleSqls.Select");
+        logger.debug("====>sql:"+sql1);
+        logger.debug("====>inpStr:"+a);
+        outputStr1 = jdbcTemplateObject.queryForObject(sql1, new Object[] { a }, String.class);
+        return outputStr1;
+    }
+    
     
 	/**
 	 * @param args
