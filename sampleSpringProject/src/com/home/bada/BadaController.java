@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 // do some work don't just comment!!
-
+//hello 
 @Controller
 public class BadaController extends HttpServlet{
 	  private static final long serialVersionUID = 1L;
