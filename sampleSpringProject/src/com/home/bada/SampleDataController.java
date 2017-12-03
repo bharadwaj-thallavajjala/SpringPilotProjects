@@ -71,7 +71,7 @@ public class SampleDataController extends HttpServlet {
 		String outputStr = sampleJdbcTempl.getInfoFromDB(inpStr);
 		logger.debug("=====>outputStr:"+outputStr);
 		
-		modelMap.addAttribute("testID", outputStr);
+		modelMap.addAttribute("testID1", outputStr);
 	    return "sample.jsp";
 	  }
 }

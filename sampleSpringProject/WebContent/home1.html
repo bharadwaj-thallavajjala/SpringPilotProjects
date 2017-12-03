@@ -10,6 +10,7 @@ function callController () {
     $.ajax({url: "getDataFromDB?inputStr="+$("#inputStr").val(), 
     	success: function(result){
         $("#div1").html(result);
+     
     }});
 }
 
