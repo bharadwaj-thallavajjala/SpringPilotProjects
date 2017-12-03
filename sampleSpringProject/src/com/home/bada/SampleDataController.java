@@ -4,6 +4,10 @@
 package com.home.bada;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
@@ -51,19 +55,7 @@ public class SampleDataController extends HttpServlet {
 	   *           IOException
 	   */
 	  @RequestMapping(value = "/getDataFromDB", method = { RequestMethod.POST, RequestMethod.GET })
-	 /* public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
-	  {
-		logger.debug("=====>START getData");
-		String inpStr = request.getParameter("inputStr");
-		logger.debug("=====>inputStr:"+inpStr);
-		String outputStr = sampleJdbcTempl.getInfoFromDB(inpStr);
-		logger.debug("=====>outputStr:"+outputStr);
-		
-		modelMap.addAttribute("testID", outputStr);
-	    return "sample.jsp";
-	  }
-	  */
-	  public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
+	 public final String getData(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
 	  {
 		logger.debug("=====>START getData");
 		int inpStr = Integer.parseInt(request.getParameter("inputStr"));
@@ -72,6 +64,24 @@ public class SampleDataController extends HttpServlet {
 		logger.debug("=====>outputStr:"+outputStr);
 		
 		modelMap.addAttribute("testID1", outputStr);
+	    return "sample.jsp";
+	  }
+	  @RequestMapping(value = "/getDataFromDBMulOut", method = { RequestMethod.POST, RequestMethod.GET })
+	  public final String getDataMulOut(final HttpServletRequest request, final HttpServletResponse response, final ModelMap modelMap) throws IOException
+	  {
+		logger.debug("=====>START getData");
+		int inpStr = Integer.parseInt(request.getParameter("inputStr"));
+		logger.debug("=====>inputStr:"+inpStr);
+		List<Map<String,Object>> outputStr = sampleJdbcTempl.getInfoFromDBMulOut(inpStr);
+		logger.debug("=====>outputStr:"+outputStr);
+		String outStr = "";
+		for (Iterator iterator = outputStr.iterator(); iterator.hasNext();) {
+			Map<String, Object> map = (Map<String, Object>) iterator.next();
+			outStr = outStr + map.get("COUNTRY_ID")+"--"+map.get("COUNTRY_NAME") + "<BR>";
+			
+		}
+		
+		modelMap.addAttribute("testID1", outStr);
 	    return "sample.jsp";
 	  }
 }

@@ -3,6 +3,10 @@
  */
 package com.home.bada;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javax.sql.DataSource;
@@ -83,6 +87,17 @@ public class SampleJDBCTemplate {
         outputStr1 = jdbcTemplateObject.queryForObject(sql1, new Object[] { a }, String.class);
         return outputStr1;
     }
+    
+    public final List<Map<String,Object>> getInfoFromDBMulOut(final int inpInt ) {
+        final String sql = tv.getString("SampleSql.Select2");
+        logger.debug("====>sql:"+sql);
+        logger.debug("====>inpStr:"+inpInt);
+        List<Map<String,Object>> outputStr1 = jdbcTemplateObject.queryForList(sql, new Object[] { inpInt });
+        logger.debug("====>outputStr1:"+outputStr1);
+        return outputStr1;
+    }
+    
+    
     
     
 	/**

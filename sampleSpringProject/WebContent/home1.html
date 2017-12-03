@@ -7,9 +7,17 @@
 <script type="text/javascript">
 
 function callController () {
-    $.ajax({url: "getDataFromDB?inputStr="+$("#inputStr").val(), 
+    $.ajax({url: "getDataFromDB?inputStr="+$("#inputStrTxt").val(), 
     	success: function(result){
         $("#div1").html(result);
+     
+    }});
+}
+
+function callControllerMulOut () {
+    $.ajax({url: "getDataFromDBMulOut?inputStr="+$("#inputInt").val(), 
+    	success: function(result){
+        $("#div2").html(result);
      
     }});
 }
@@ -21,10 +29,18 @@ function callController () {
 <BR/>
 <BR/>
 <BR/>
-<input type="text" id="inputStr" name="inputStr" />
+<input type="text" id="inputStrTxt" name="inputStrTxt" />
 <input type="button" onclick="callController()" value="--->" />
 <BR/>
 Name of the Department is <div id="div1"></div>
 
+<br>
+<input type="text" id="inputInt" name="inputInt" />
+<input type="button" onclick="callControllerMulOut()" value="--->" />
+<BR/>
+Name of the Country is <div id="div2"></div>
+
 </body>
+
+
 </html>
