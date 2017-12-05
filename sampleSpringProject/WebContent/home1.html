@@ -22,6 +22,15 @@ function callControllerMulOut () {
     }});
 }
 
+function callRestControllerMulOut () {
+    $.ajax({url: "getJsonFromRestController?inputStr="+$("#inputIntRest").val(), 
+    	success: function(result){
+    		//alert(result);
+        $("#divRest").html(result[0].COUNTRY_NAME);
+     
+    }});
+}
+
 </script>
 </head>
 <body>
@@ -39,6 +48,15 @@ Name of the Department is <div id="div1"></div>
 <input type="button" onclick="callControllerMulOut()" value="--->" />
 <BR/>
 Name of the Country is <div id="div2"></div>
+
+
+
+<br>
+<input type="text" id="inputIntRest" name="inputIntRest" />
+<input type="button" onclick="callRestControllerMulOut()" value="--->" />
+<BR/>
+Rest Controller Info <div id="divRest"></div>
+
 
 </body>
 
