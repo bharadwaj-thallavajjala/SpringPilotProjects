@@ -3,7 +3,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 
 function callController () {
@@ -26,9 +28,23 @@ function callRestControllerMulOut () {
     $.ajax({url: "getJsonFromRestController?inputStr="+$("#inputIntRest").val(), 
     	success: function(result){
     		//alert(result);
-        $("#divRest").html(result[0].COUNTRY_NAME);
+        //$("#divRest").html(result[0].COUNTRY_NAME);
+        $("#divRest").html(arrayToTable(result));
      
     }});
+}
+
+
+function arrayToTable(resultData) {
+    var table = $('<table></table>');
+    $(resultData).each(function (i, rowData) {
+        var row = $('<tr></tr>');
+        $(rowData).each(function (j, cellData) {
+            row.append($('<td>'+cellData.COUNTRY_NAME+'</td>'));
+        });
+        table.append(row);
+    });
+    return table;
 }
 
 </script>
